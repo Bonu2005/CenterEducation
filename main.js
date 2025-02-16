@@ -1,6 +1,7 @@
 import express from "express"
 import { config } from "dotenv"
 import sequelize from "./config/db.js"
+import mainRouter from "./routes/index.js"
 config()
 const app = express()
 app.use(express.json())
@@ -15,7 +16,7 @@ async function connectDb() {
         
     }
 }
-
+app.use("/",mainRouter)
 connectDb()
 app.listen(process.env.PORT,()=>{
     console.log(`server is run port:${process.env.PORT}`);
