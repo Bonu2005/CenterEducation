@@ -2,9 +2,12 @@ import express from "express"
 import { config } from "dotenv"
 import sequelize from "./config/db.js"
 import mainRouter from "./routes/index.js"
+import swaggerUi from "swagger-ui-express";
+import { specs } from "./config/swagger.js"
 config()
 const app = express()
 app.use(express.json())
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 async function connectDb() {
     
     try {

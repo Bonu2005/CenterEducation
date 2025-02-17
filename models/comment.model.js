@@ -9,7 +9,7 @@ let Comment = sequalize.define('comment', {
       allowNull: false,
     },
     userId: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: User,
@@ -17,11 +17,11 @@ let Comment = sequalize.define('comment', {
       },
     },
     star: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     courseId: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: Course,
@@ -31,5 +31,8 @@ let Comment = sequalize.define('comment', {
   },
   
 );
-
+User.hasMany(Comment,{foreignKey:"userId"})
+Comment.belongsTo(User,{foreignKey:"userId"})
+Course.hasMany(Comment,{foreignKey:"courseId"})
+Comment.belongsTo(Course,{foreignKey:"courseId"})
 export default Comment

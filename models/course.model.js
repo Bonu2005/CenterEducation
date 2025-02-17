@@ -1,7 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
 import Category from "./category.model.js";
-import User from "./user.model.js";
 let Course = sequelize.define('course',{ 
    name: {
      type: DataTypes.STRING,
@@ -12,27 +11,19 @@ let Course = sequelize.define('course',{
      allowNull: false,
    },
    categoryId: {
-     type: DataTypes.NUMBER,
+     type: DataTypes.INTEGER,
      allowNull: false,
      references: {
        model:Category,
        key: 'id',
      },
    },
-   userId: {
-     type: DataTypes.NUMBER,
-     allowNull: false,
-     references: {
-       model:User,
-       key: 'id',
-     },
-   },
-   lessonsCount: {
-     type: DataTypes.NUMBER,
-     defaultValue: 0,
+   lessonCount: {
+     type: DataTypes.INTEGER
+    
    },
    continue: {
-     type: DataTypes.NUMBER,
+     type: DataTypes.INTEGER,
      allowNull: false,
    },
    image: {
@@ -41,4 +32,6 @@ let Course = sequelize.define('course',{
  },
 );
 
+Category.hasMany(Course,{foreignKey:"categoryId"})
+Course.belongsTo(Category,{foreignKey:"categoryId"})
 export default Course

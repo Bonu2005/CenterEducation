@@ -11,5 +11,4 @@ let Category = sequalize.define('category',{
    }
 
 })
-
 export default Category

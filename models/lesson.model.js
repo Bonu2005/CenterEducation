@@ -3,7 +3,7 @@ import sequelize from "../config/db.js";
 import Course from "./course.model.js";
 let Lesson = sequelize.define('lesson', {
     courseId: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: Course, 
@@ -21,4 +21,6 @@ let Lesson = sequelize.define('lesson', {
    
 },{timestamps:true})
 
+Course.hasMany(Lesson,{foreignKey:"courseId"})
+Lesson.belongsTo(Course,{foreignKey:"courseId"})
 export default Lesson
