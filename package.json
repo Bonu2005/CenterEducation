@@ -1,9 +1,14 @@
 {
+<<<<<<< HEAD
   "name": "centereducation",
+=======
+  "name": "project",
+>>>>>>> c200e6fcbccd5956d88d12c1238d003f878c6f58
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +27,29 @@
     "nodemailer": "^6.10.0",
     "otplib": "^12.0.1",
     "sequelize": "^6.37.5"
+=======
+    "dev": "node --watch main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bonu2005/CenterEducation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bonu2005/CenterEducation/issues"
+  },
+  "homepage": "https://github.com/Bonu2005/CenterEducation#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "mysql2": "^3.12.0",
+    "sequelize": "^6.37.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+>>>>>>> c200e6fcbccd5956d88d12c1238d003f878c6f58
   }
 }
